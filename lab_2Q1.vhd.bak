@@ -1,0 +1,22 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity T_flipflop is
+    Port ( T : in  STD_LOGIC;
+           CLK : in  STD_LOGIC;
+			  Q : out  STD_LOGIC;
+           notQ : out  STD_LOGIC);
+end T_flipflop;
+
+architecture Behavioral of T_flipflop is
+	signal Qn : STD_LOGIC := '0';
+begin
+    process(CLK)
+    begin
+        if rising_edge(CLK) then
+            if T = '1' then
+                Qn <= not Qn;
+            end if;
+        end if;
+    end process;
+end Behavioral;
